@@ -23,16 +23,13 @@ let localList = [];
 async function getItems() {
     const newList = await getListItems();
     localList = newList.data;
-    console.log(localList);
 }
 
 // display functions:
 function displayAllItems() {
     const listContainerEl = document.querySelector('#list-container');
     listContainerEl.textContent = '';
-    console.log(localList);
     for (let listItem of localList) {
-        console.log(listItem);
         const newItemEl = renderListItem(listItem);
         listContainerEl.append(newItemEl);
     }
@@ -54,8 +51,7 @@ formEl.addEventListener('submit', async (e) => {
     const amountValue = data.get('amount');
     const newItem = { item: nameValue, amount: amountValue, bought: false };
     const response = await enterListItem(newItem);
-    console.log(response)
-    // newItem.id = response.id;
+    newItem.id = response.data[0].id;
     localList.push(newItem);
     displayAllItems();
     formEl.reset();

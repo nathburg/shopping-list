@@ -1,3 +1,5 @@
+import { changeBought } from "./fetch-utils.js";
+
 export function renderListItem(listItem) {
     const itemContainerEl = document.createElement('div');
     const itemNameEl = document.createElement('div');
@@ -9,8 +11,12 @@ export function renderListItem(listItem) {
 
     if (!listItem.bought) {
         itemContainerEl.addEventListener('click', () => {
-            
+            itemContainerEl.classList.add('bought');
+            const response = changeBought(listItem.id);
+            console.log(response);
         });
+    } else {
+        itemContainerEl.classList.add('bought');
     }
 
     itemNameEl.textContent = listItem.item;
