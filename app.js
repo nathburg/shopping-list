@@ -65,3 +65,12 @@ deleteButtonEl.addEventListener('click', async () => {
         displayAllItems();
     }
 });
+
+export function markItemBought(id) {
+    for (let listItem of localList) {
+        if (listItem.id === id) {
+            listItem.bought = true;
+            console.log(localList);
+        }
+    }
+}

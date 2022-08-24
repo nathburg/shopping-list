@@ -1,4 +1,5 @@
 import { changeBought } from './fetch-utils.js';
+import { markItemBought } from './app.js';
 
 export function renderListItem(listItem) {
     const itemContainerEl = document.createElement('div');
@@ -10,9 +11,10 @@ export function renderListItem(listItem) {
     itemAmountEl.classList.add('item-amount');
 
     if (!listItem.bought) {
-        itemContainerEl.addEventListener('click', () => {
+        itemContainerEl.addEventListener('click', async () => {
             itemContainerEl.classList.add('bought');
-            changeBought(listItem.id);
+            markItemBought(listItem.id);
+            await changeBought(listItem.id);
         });
     } else {
         itemContainerEl.classList.add('bought');
