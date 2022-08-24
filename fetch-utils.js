@@ -57,3 +57,8 @@ export async function changeBought(id) {
     const response = await client.from('shopping-list').update({ bought: true }).match({ 'id': id });
     return response;
 }
+
+export async function deleteAll() {
+    const response = await client.from('shopping-list').delete().match({ user_id: client.auth.user().id });
+    return response;
+}

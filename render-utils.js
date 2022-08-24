@@ -1,4 +1,4 @@
-import { changeBought } from "./fetch-utils.js";
+import { changeBought } from './fetch-utils.js';
 
 export function renderListItem(listItem) {
     const itemContainerEl = document.createElement('div');
@@ -12,8 +12,7 @@ export function renderListItem(listItem) {
     if (!listItem.bought) {
         itemContainerEl.addEventListener('click', () => {
             itemContainerEl.classList.add('bought');
-            const response = changeBought(listItem.id);
-            console.log(response);
+            changeBought(listItem.id);
         });
     } else {
         itemContainerEl.classList.add('bought');
