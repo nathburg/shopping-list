@@ -20,6 +20,12 @@ const formEl = document.querySelector('#shopping-form');
 // local state:
 let localList = [];
 
+async function getItems() {
+    const newList = await getListItems();
+    localList = newList.data;
+    console.log(localList);
+}
+
 // display functions:
 function displayAllItems() {
     const listContainerEl = document.querySelector('#list-container');
@@ -32,15 +38,12 @@ function displayAllItems() {
 }
 
 // events:
-getItems();
-displayAllItems();
+window.addEventListener('load', async () => {
+    await getItems();
+    displayAllItems();
+})
 
 
-async function getItems() {
-    const newList = await getListItems();
-    localList = newList.data;
-    console.log(localList);
-}
 
 
 formEl.addEventListener('submit', async (e) => {
