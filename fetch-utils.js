@@ -44,7 +44,7 @@ export async function signOutUser() {
 
 /* Data functions */
 export async function enterListItem(listItem) {
-    const response = client.from('shopping-list').upsert([listItem]);
+    const response = client.from('shopping-list').insert([listItem]);
     return response;
 }
 

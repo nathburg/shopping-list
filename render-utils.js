@@ -7,6 +7,12 @@ export function renderListItem(listItem) {
     itemNameEl.classList.add('item-detail');
     itemAmountEl.classList.add('item-amount');
 
+    if (!listItem.bought) {
+        itemContainerEl.addEventListener('click', () => {
+            
+        });
+    }
+
     itemNameEl.textContent = listItem.item;
     itemAmountEl.textContent = listItem.amount;
 
