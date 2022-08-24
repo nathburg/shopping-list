@@ -52,3 +52,15 @@ footer {
     justify-content: flex-end;
     background-color: var(--footer-background);
 }
+
+.item-container {
+    cursor: pointer;
+    margin: 10px;
+    background-color: bisque;
+    max-width: fit-content;
+}
+
+.bought {
+    text-decoration: line-through;
+}
+
